@@ -19,7 +19,5 @@ Configuration unique to this app.
 
 ###META-INF
 
-
-
 ##Appendix
 

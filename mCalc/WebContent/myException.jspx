@@ -11,7 +11,7 @@
 <title>Handling them exceptions</title>
 </head>
 <body>
-<p>Hello there was an excpetion!</p>
+<p>Hello there was an exception!</p>
 </body>
 </html>
 </jsp:root>
