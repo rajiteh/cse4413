@@ -1,5 +1,4 @@
 #CSE4413
-Check commit history.
 
 ##Week 1
 Basics. Setting up VM, etc.
@@ -19,5 +18,45 @@ Configuration unique to this app.
 
 ###META-INF
 
-##Appendix
+##Week 3
+### Packages
+- Seperation of concerns.
+- Communication between packages.
 
+Seperation of packages in tomcat.
+
+1. Controller
+2. Analytics
+3. Servlets
+4. JSPX
+5. Models (Business Rules) - Pojo 
+		
+### MVC
+
+#### Controller
+- Finite state machine
+- Must be simple.
+
+#### Model
+- Is a POJO
+- Contains business logic
+- Is application agnostic (Acts as a plugin)
+- Model gets complex in terms of logic 
+- Should not store session unique data
+
+#### View
+
+
+
+
+### Pub/Sub
+- *Context Scope* - Aka Application scope, available app-wide. Typed.
+- *Request Scope* - Limited to current request.
+- *Subscribe* - Using	 a listener
+
+### Jasper
+
+
+##Appendix
+- **Pojo** : Plain Old Java Object
+- **Session** : `session.setMaxInactiveInterval()`

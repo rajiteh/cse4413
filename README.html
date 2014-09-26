@@ -1020,4 +1020,44 @@ body .markdown-body
 <li>Error page : Provide an error code or exception type and matching page.</li>
 </ul>
 <h3 id="meta-inf"><a name="user-content-meta-inf" href="#meta-inf" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>META-INF</h3>
-<h2 id="appendix"><a name="user-content-appendix" href="#appendix" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Appendix</h2></article></body></html>
+<h2 id="week-3"><a name="user-content-week-3" href="#week-3" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Week 3</h2>
+<h3 id="packages"><a name="user-content-packages" href="#packages" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Packages</h3>
+<ul>
+<li>Seperation of concerns.</li>
+<li>Communication between packages.</li>
+</ul>
+<p>Seperation of packages in tomcat.</p>
+<ol>
+<li>Controller</li>
+<li>Analytics</li>
+<li>Servlets</li>
+<li>JSPX</li>
+<li>Models (Business Rules) - Pojo </li>
+</ol>
+<h3 id="mvc"><a name="user-content-mvc" href="#mvc" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>MVC</h3>
+<h4 id="controller"><a name="user-content-controller" href="#controller" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Controller</h4>
+<ul>
+<li>Finite state machine</li>
+<li>Must be simple.</li>
+</ul>
+<h4 id="model"><a name="user-content-model" href="#model" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Model</h4>
+<ul>
+<li>Is a POJO</li>
+<li>Contains business logic</li>
+<li>Is application agnostic (Acts as a plugin)</li>
+<li>Model gets complex in terms of logic </li>
+<li>Should not store session unique data</li>
+</ul>
+<h4 id="view"><a name="user-content-view" href="#view" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>View</h4>
+<h3 id="pubsub"><a name="user-content-pubsub" href="#pubsub" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Pub/Sub</h3>
+<ul>
+<li><em>Context Scope</em> - Aka Application scope, available app-wide. Typed.</li>
+<li><em>Request Scope</em> - Limited to current request.</li>
+<li><em>Subscribe</em> - Using    a listener</li>
+</ul>
+<h3 id="jasper"><a name="user-content-jasper" href="#jasper" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Jasper</h3>
+<h2 id="appendix"><a name="user-content-appendix" href="#appendix" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Appendix</h2>
+<ul>
+<li><strong>Pojo</strong> : Plain Old Java Object</li>
+<li><strong>Session</strong> : <code>session.setMaxInactiveInterval()</code></li>
+</ul></article></body></html>

@@ -10,7 +10,7 @@ legend {
 
 form
   {
-    width:275px;;
+    display:table;
     margin:auto;
     background-color: #dddddd;	
     font-family: Calibri, Ariel, sans-serif;
@@ -34,4 +34,9 @@ form
   .radio label, .radio input 
   {
     display: inline; 
+  }
+  
+  .error {
+  	background: red;
+  	color: white;
   }

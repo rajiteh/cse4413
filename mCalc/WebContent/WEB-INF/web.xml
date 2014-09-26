@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>mCalc</display-name>
-  <servlet-mapping>
-	  <servlet-name>Start</servlet-name>
-	  <url-pattern>/Startup/*</url-pattern>
-	  <url-pattern>/Start</url-pattern>
-  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -23,22 +18,16 @@
     <exception-type>java.lang.Exception</exception-type>
     <location>/myException.jspx</location>
   </error-page>
-  
   <context-param>
     <param-name>amortization</param-name>
-    <param-value>10</param-value>
+    <param-value>25</param-value>
   </context-param>
-  
   <context-param>
     <param-name>interest</param-name>
     <param-value>20</param-value>
   </context-param>
-  
   <context-param>
- <param-name>principle</param-name>
+    <param-name>principal</param-name>
     <param-value>30</param-value>
   </context-param>
-  
-    
-   
 </web-app>

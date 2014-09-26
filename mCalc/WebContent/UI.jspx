@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-	<jsp:directive.page contentType="text/html; charset=UTF-8" 
-		pageEncoding="UTF-8" session="false"/>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	version="2.0">
+	<jsp:directive.page contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8" session="false" />
 	<jsp:output doctype-root-element="html"
 		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
 		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
 		omit-xml-declaration="true" />
-<html xmlns="http://www.w3.org/1999/xhtml">
+	<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Mortgage Calc</title>
-<link rel="stylesheet" href="/mCalc/res/mc.css" type="text/css" title="cse4413" media="screen, print"/>
+<link rel="stylesheet" href="/mCalc/res/mc.css" type="text/css"
+	title="cse4413" media="screen, print" />
 </head>
 <body>
-<form action="" method="POST">
-	<FIELDSET>
-		<LEGEND>Mortgage Calc</LEGEND>
-		<label for="principle" accesskey="p">Principle</label>
-		<input type="text" name="principle" id="cash" value=""/>
-		<br/>
-		<label for="interest" accesskey="i">Interest</label>
-		<input type="text" name="interest" id="interest" value=""/>
-		<br/>
-		<label for="amortization" accesskey="a">Amortization</label>
-		<div class="radio">
-			<input type="radio" id="amort20" name="amortization" value="20"/><label for="amort20">20</label>
-			<input type="radio" id="amort25" name="amortization" value="25"/><label for="amort25">25</label>
-			<input type="radio" id="amort30" name="amortization" value="30"/><label for="amort30">30</label>
-		</div>
-		<br/>
-		<input type="submit" name="doit" value="Monthly Payment"/>
-	</FIELDSET>
-</form>
+	<form action="" method="POST">
+		<FIELDSET>
+			<LEGEND>Mortgage Calc</LEGEND>
+			
+			<c:if test="${not empty error}">
+				<p class="error"> Validation Failed! ${error}</p>
+			</c:if>
+			
+			<label for="principal" accesskey="p">Principal</label> <input
+				type="text" name="principal" id="cash" value="${principal}" /> <br /> <label
+				for="interest" accesskey="i">Interest</label> <input type="text"
+				name="interest" id="interest" value="${interest}" /> <br /> <label
+				for="amortization" accesskey="a">Amortization</label>
+			<div class="radio">
+			
+				<c:forTokens items="20, 25, 30" delims="," var="amort">
+					<c:choose>
+						<c:when test="${amortization == amort}">
+							<input type="radio" id="amort${amort }" name="amortization" value="${amort }" checked="checked" /><label for="amort${amort }">${amort }</label>
+						</c:when>
+						<c:otherwise>
+							<input type="radio" id="amort${amort }" name="amortization" value="${amort }" /><label for="amort${amort }">${amort }</label>
+						</c:otherwise> 
+					</c:choose> 
+				</c:forTokens>
+			</div>
+			<br /> <input type="submit" name="doit" value="Monthly Payment" />
+
+			
+		</FIELDSET>
+	</form>
 </body>
-</html>
+	</html>
 </jsp:root>
