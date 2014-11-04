@@ -81,3 +81,43 @@ Seperation of packages in tomcat.
 
 ## Week 6
 
+### Bean
+- Pojo
+- Private Attribute
+- Getter and Setter
+
+## DAO (Data access object) / DAL (Data Access Layer)
+- Uses Connections, Statement, Execute
+
+## Week 7
+
+### XML
+- Message Transport
+- Self describing
+- Self validating
+- Declarative language (Not procedural)
+- Commincate data between independent heterogeneous systems
+- Strict parsing syntax
+
+#### Well formed?
+- Only one root
+- Strict nesting. 
+- Tag name start with letter.
+#### Valid?
+- Schema validation with grammar
+- Name, order and values of tags
+#### Parsing
+#### Binding
+### XML Schema
+- Primitive Types (Like javva + more)
+- Simple Types : Provide validation restrictions such as bounds
+- Sequence tag ensures the order of elements.
+
+## Week 8
+
+### XSL
+- Declarative styling/formatting guide for XML
+- Can inject css and js.
+
+## Custom Tags
+- Content manipulation within JSP
