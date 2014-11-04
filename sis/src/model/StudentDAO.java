@@ -49,14 +49,12 @@ public class StudentDAO {
 			preparedStatement.setString(2, namePrefix + "%");
 			
 			resultSet = preparedStatement.executeQuery();
-			System.out.println(query);
-			System.out.println(sortBy);
+
 			while (resultSet.next()) {
 				String fullName = resultSet.getString(1) + ", " + resultSet.getString(2);
 				String major = resultSet.getString(3);
 				int courses = resultSet.getInt(4);
-				double gradepointavg = resultSet.getDouble(5);
-				System.out.println(fullName + " " + major + " " + courses + " " + gradepointavg);
+				double gradepointavg = resultSet.getDouble(5);				
 				retval.add(new StudentBean(fullName , major, courses, gradepointavg));
 			}
 		} catch (Exception e) {

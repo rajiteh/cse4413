@@ -57,26 +57,44 @@ public class Start extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		final String EXPORT_FOLDER = "/export/";
+		final String EXPORT_EXTENSION = ".xml";
 		
-
+		String forwardTo = "/Form.jspx"; 
+		
 		SIS model = (SIS) request.getServletContext().getAttribute(MODEL_KEY);
+		String namePrefix = request.getParameter("prefix");
+		String gpa = request.getParameter("gpa");
+		String sortBy = request.getParameter("sortby");
+		request.setAttribute("prefix", namePrefix);
+		request.setAttribute("minGPA", gpa);
+		request.setAttribute("sortBy", sortBy);
 		
-		if (request.getParameter("report") != null || request.getParameter("generate") != null) {
-			String namePrefix = request.getParameter("prefix");
-			String gpa = request.getParameter("gpa");
-			String sortBy = request.getParameter("sortby");
+		
+		if (request.getParameter("report") != null) {
 			try {
-				request.setAttribute("prefix", namePrefix);
-				request.setAttribute("minGPA", gpa);
-				request.setAttribute("sortBy", sortBy);
 				request.setAttribute("results", model.retrieve(namePrefix, gpa, sortBy));
+			} catch (Exception e) {
+				request.setAttribute("error", e.getMessage());
+				e.printStackTrace();
+			}
+		} else if (request.getParameter("generate") != null) {
+			try {
+				String sessionID = request.getSession().getId();
+				String filename = EXPORT_FOLDER + sessionID + EXPORT_EXTENSION;
+				String filepath = request.getServletContext().getRealPath(filename);
+				model.export(namePrefix, gpa, sortBy, filepath);
+				request.setAttribute("reportPath", request.getContextPath() + filename);
+				forwardTo = "/Done.jspx";
 			} catch (Exception e) {
 				request.setAttribute("error", e.getMessage());
 				e.printStackTrace();
 			}
 		}
 		
-		doGet(request,response);
+		if (forwardTo.equals("/Form.jspx"))
+			doGet(request,response);
+		else request.getRequestDispatcher(forwardTo).forward(request, response);
 	}
 
 }
