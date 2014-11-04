@@ -19,22 +19,22 @@ public class Mortgage {
 	}
 
 	public double computePayment(String p, String a, String i) throws Exception {
-		double principal = this.extractPrincipal(p); 
+		double principle = this.extractPrinciple(p); 
 		double amortization = this.extractAmortization(a);
 		double interest = this.extractInterest(i);
 		
 		double rate = (interest / 12) / 100;
 		if (rate > 0) {
-			return  (rate * principal) / (1 - Math.pow(1 + rate, -amortization * 12));	
+			return  (rate * principle) / (1 - Math.pow(1 + rate, -amortization * 12));	
 		} else {
-			return principal / (amortization * 12);
+			return principle / (amortization * 12);
 		}
 		
 	}
 
-	private double extractPrincipal(String parse) {
+	private double extractPrinciple(String parse) {
 		double result = Double.parseDouble(parse);
-		if (result <= 0) throw new InvalidParameterException("Principal value is must be positive.");
+		if (result <= 0) throw new InvalidParameterException("Principle value is must be positive.");
 		
 		return result;
 	}

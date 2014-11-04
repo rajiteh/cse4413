@@ -45,18 +45,37 @@ Seperation of packages in tomcat.
 - Should not store session unique data
 
 #### View
-
-
-
+- JSP / JSPX
 
 ### Pub/Sub
 - *Context Scope* - Aka Application scope, available app-wide. Typed.
 - *Request Scope* - Limited to current request.
-- *Subscribe* - Using	 a listener
+- *Subscribe* - Usinga listener
 
 ### Jasper
+- JSTL
+- Expression Language
+
+##Week 4
+
+####Ad-hoc Changes
+- Peripheral to the business.
+- Quick changes. Pilotting a feature (?)
+- Ad-hoc changes should not affect the main app (no recompile)
+
+
+###Filters
+- Can be hooked in to any stage of the app (req -> ctrl -> view)
+- Facilitate ad-hoc changes. 
+- Continue/Abort the chain.
+- Can redirect requests to other views/ctrllers
 
 
 ##Appendix
 - **Pojo** : Plain Old Java Object
 - **Session** : `session.setMaxInactiveInterval()`
+
+## Week 5
+
+### Javascript
+

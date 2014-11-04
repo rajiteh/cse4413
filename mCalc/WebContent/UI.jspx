@@ -13,21 +13,27 @@
 <title>Mortgage Calc</title>
 <link rel="stylesheet" href="/mCalc/res/mc.css" type="text/css"
 	title="cse4413" media="screen, print" />
+<script type="text/javascript" src="/mCalc/res/mc.js">;</script>
 </head>
 <body>
-	<form action="" method="POST">
+	<form action="" method="POST" onsubmit="return validate()" name="mc">
 		<FIELDSET>
 			<LEGEND>Mortgage Calc</LEGEND>
-			
-			<c:if test="${not empty error}">
-				<p class="error"> Validation Failed! ${error}</p>
-			</c:if>
-			
-			<label for="principal" accesskey="p">Principal</label> <input
-				type="text" name="principal" id="cash" value="${principal}" /> <br /> <label
-				for="interest" accesskey="i">Interest</label> <input type="text"
-				name="interest" id="interest" value="${interest}" /> <br /> <label
-				for="amortization" accesskey="a">Amortization</label>
+			<p class="error" id="error"> 
+				<c:if test="${not empty error}">
+					Validation Failed! ${error}
+				</c:if>
+			</p>
+	
+			<label for="principle" accesskey="p">Principle</label> 
+			<input type="text" name="principle" id="cash" value="${principle}" />
+			<p class="error inline-error" id="error-for-principle">*</p>
+			<br />
+			<label for="interest" accesskey="i">Interest</label> 
+			<input type="text" name="interest" id="interest" value="${interest}" /> 
+			<p class="error inline-error" id="error-for-interest">*</p>
+			<br />
+			<label for="amortization" accesskey="a">Amortization</label>
 			<div class="radio">
 			
 				<c:forTokens items="20, 25, 30" delims="," var="amort">
@@ -41,9 +47,7 @@
 					</c:choose> 
 				</c:forTokens>
 			</div>
-			<br /> <input type="submit" name="doit" value="Monthly Payment" />
-
-			
+			<br /> <input type="submit" name="doit" value="Monthly Payment"  />
 		</FIELDSET>
 	</form>
 </body>

@@ -2,8 +2,6 @@ package ctrl;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +42,7 @@ public class Start extends HttpServlet {
 		HttpSession session = request.getSession();
 		request.setAttribute("interest", session.getAttribute("interest"));
 		request.setAttribute("amortization", session.getAttribute("amortization"));
-		request.setAttribute("principal", session.getAttribute("principal"));
+		request.setAttribute("principle", session.getAttribute("principle"));
 		
 		request.getRequestDispatcher("/UI.jspx").forward(request, response);
 		
@@ -57,20 +55,20 @@ public class Start extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Serving POST " + request.getRequestURI() + "?" + request.getQueryString());
 		response.setContentType("text/html");
-		String monthlyPayment, jspTarget, principal, amortization, interest;
+		String monthlyPayment, jspTarget, principle, amortization, interest;
 		
 		HttpSession session = request.getSession();
 		Mortgage mrtg = (Mortgage) this.getServletContext().getAttribute("model");
 		
 		
 		//Set the default values
-		principal = request.getParameter("principal");
+		principle = request.getParameter("principle");
 		amortization = request.getParameter("amortization");
 		interest = request.getParameter("interest");
 		
-		if (principal == null || principal.length() == 0) {
-			if ((principal = (String) session.getAttribute("principal")) == null) {
-				principal = this.getServletContext().getInitParameter("principal"); 
+		if (principle == null || principle.length() == 0) {
+			if ((principle = (String) session.getAttribute("principle")) == null) {
+				principle = this.getServletContext().getInitParameter("principle"); 
 			}
 		}
 		
@@ -86,17 +84,17 @@ public class Start extends HttpServlet {
 		
 		request.setAttribute("interest", interest);
 		request.setAttribute("amortization", amortization);
-		request.setAttribute("principal", principal);
+		request.setAttribute("principle", principle);
 		
 		try {
-			monthlyPayment = String.format("%.2f", mrtg.computePayment(principal, amortization, interest));
+			monthlyPayment = String.format("%.2f", mrtg.computePayment(principle, amortization, interest));
 			request.setAttribute("monthlyPayment", monthlyPayment);
 			jspTarget = "/Result.jspx";
 			
 			//Store session on valid input ONLY
 			session.setAttribute("interest", interest);
 			session.setAttribute("amortization", amortization);
-			session.setAttribute("principal", principal);
+			session.setAttribute("principle", principle);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -19,7 +19,7 @@
 		<FIELDSET>
 			<LEGEND>Mortgage Calc</LEGEND>			
 			<p> Interest : ${interest }% </p>
-			<p> Principal : <f:formatNumber type="currency" currencySymbol="$">${principal }</f:formatNumber> </p>
+			<p> Principle : <f:formatNumber type="currency" currencySymbol="$">${principle }</f:formatNumber> </p>
 			<h2> Your monthly payment is: <f:formatNumber type="currency" currencySymbol="$">${monthlyPayment }</f:formatNumber></h2>
 			<input type="text" name="interest" value="" /> 
 			<input type="submit" name="dostuff" value="Calculate Interest" />
