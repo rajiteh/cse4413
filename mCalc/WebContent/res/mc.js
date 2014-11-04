@@ -25,5 +25,27 @@ function validate() {
 	return retval;
 }
 
+function getRates(principle) { 
+	var url = ""; 
+	var data = "ajax=yes"; 
+	data += "&principle=" + principle; 
+	doSimpleAjax(url, data, function(request) {
+	 if (request.readyState == 4 && request.status == 200) {
+		 var target = document.getElementById("error-for-interest");
+		 target.innerHTML = request.responseText;
+	 }
+	}); 
+} 
+
+function updateInterest(interest) {
+	document.mc.interest.value = interest;
+}
+ 
+function doSimpleAjax(address, data, handler) { 
+	var request = new XMLHttpRequest(); 
+	request.onreadystatechange = function()	{ handler(request); }; 
+	request.open("GET", (address + "?" + data), true); 
+	request.send(null); 
+} 
 
 

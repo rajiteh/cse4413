@@ -26,7 +26,7 @@
 			</p>
 	
 			<label for="principle" accesskey="p">Principle</label> 
-			<input type="text" name="principle" id="cash" value="${principle}" />
+			<input type="text" name="principle" id="cash" onblur="getRates(this.value);" value="${principle}" />
 			<p class="error inline-error" id="error-for-principle">*</p>
 			<br />
 			<label for="interest" accesskey="i">Interest</label> 

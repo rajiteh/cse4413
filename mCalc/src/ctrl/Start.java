@@ -31,7 +31,16 @@ public class Start extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Serving GET " + request.getRequestURI() + "?" + request.getQueryString());
-
+		
+		if (request.getParameter("ajax") != null) { 
+			String msg = "<select id='ajaxSelect' onchange='updateInterest(this.value);'>"; 
+			msg += "<option value='3.5'>" + "3.5 from RBC" + "</option>"; 
+			msg += "<option value='3.2'>" + "3.2 from ING" + "</option>"; 
+			msg += "<option value='3.1'>" + "3.1 from TD" + "</option>";
+			msg += "</select>"; 
+			response.getWriter().print(msg);
+			return;
+		} 
 		
 		
 		// Redirect client to Start on Startup/YorkBank

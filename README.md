@@ -79,3 +79,5 @@ Seperation of packages in tomcat.
 
 ### Javascript
 
+## Week 6
+
