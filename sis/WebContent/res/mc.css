@@ -2,49 +2,80 @@
 
 legend {
 	font-size: 125%;
-	paddding-left: 1em;
+	padding-left: 1em;
 	padding-right: 1em;
 	background: #09C;
 	color: #fff;
 }
 
-form
-  {
-    display:table;
-    margin:auto;
-    background-color: #dddddd;	
-    font-family: Calibri, Ariel, sans-serif;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: bold;
-    color: #09C;
-    border-radius: 10px;
-    padding: 8px;
-    border: 1px solid #999;
-    border: inset 1px solid #333;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    width: 180px;
-  }
+form {
+	width: 275px;;
+	margin: auto;
+	background-color: #dddddd;
+	font-family: Calibri, Ariel, sans-serif;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: bold;
+	color: #09C;
+	border-radius: 10px;
+	padding: 8px;
+	border: 1px solid #999;
+	border: inset 1px solid #333;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
 
-  label
-  {
-    display: block;
-    margin-top: 16px;
-  }
+label {
+	display: block;
+	margin-top: 16px;
+}
 
-  .radio label, .radio input 
-  {
-    display: inline; 
-  }
-  
-  .error {
-  	background: red;
-  	color: white;
-  }
-  
-  .inline-error {
-	  display: inline;
-	  background: none;
-	  color: red;
-  }
+.radio label, .radio input {
+	display: inline;
+}
+
+.error {
+	font-weight: bold;
+	font-size: 75%;
+	color: #ff0000;
+	font-size: 75%;
+}
+
+.inline-error {
+	display: inline;
+}
+
+input[type=submit] {
+	width: 48%;
+	background: #09C;
+	margin-left: 24%;
+	margin-top: 8px;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 15px;
+	border: 1px solid #999;
+}
+
+input[type=submit]:hover {
+	background: #fff;
+	color: #09C;
+}
+
+#result {
+	text-align: center;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#result table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#result td {
+	padding: 10px;
+}
+
+#result tr td:last-child {
+	text-align: left;
 }

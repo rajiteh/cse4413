@@ -25,12 +25,12 @@ public class StudentDAO {
 		dataSource = (DataSource) initialContext.lookup(DATASOURCE_CONTEXT);
 	}
 
-	public List<StudentBean> retrieve(String namePrefix, double gpa)
+	public List<StudentBean> retrieve(String name, double gpa)
 			throws SQLException {
-		return retrieve(namePrefix, gpa, FLAG_NO_SORT);
+		return retrieve(name, gpa, FLAG_NO_SORT);
 	}
 
-	public List<StudentBean> retrieve(String namePrefix, double gpa,
+	public List<StudentBean> retrieve(String name, double gpa,
 			String sortBy) throws SQLException {
 
 		Connection connection = null;
@@ -39,14 +39,14 @@ public class StudentDAO {
 		List<StudentBean> retval = new ArrayList<StudentBean>();
 		
 		boolean sorting = sortBy.equals(FLAG_NO_SORT) ? false : true;
-		String query = "SELECT surname, givenname, major, courses, GPA FROM SIS WHERE gpa >=? AND surname LIKE ?";
+		String query = "SELECT surname, givenname, major, courses, GPA FROM SIS WHERE gpa >=? AND LOWER(surname) LIKE LOWER(?)";
 		query += (sorting ? " ORDER BY " + sortBy : "");
 
 		try {
 			connection = getConnection();
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setDouble(1, gpa);
-			preparedStatement.setString(2, namePrefix + "%");
+			preparedStatement.setString(2, name);
 			
 			resultSet = preparedStatement.executeQuery();
 
