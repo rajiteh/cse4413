@@ -121,3 +121,9 @@ Seperation of packages in tomcat.
 
 ## Custom Tags
 - Content manipulation within JSP
+
+
+Code appearing in this project is entirely written by @rajiteh <rajiteh@gmail.com> while following the class curriculum. The author makes no guarantee of the accuracy or the correctness of the code. 
+
+The MIT License (MIT)
+Copyright (c) 2014 @rajiteh <rajiteh@gmail.com>
