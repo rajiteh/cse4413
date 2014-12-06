@@ -122,8 +122,25 @@ Seperation of packages in tomcat.
 ## Custom Tags
 - Content manipulation within JSP
 
+## Week 10
 
-Code appearing in this project is entirely written by @rajiteh <rajiteh@gmail.com> while following the class curriculum. The author makes no guarantee of the accuracy or the correctness of the code. 
+### Fragmented View
+- jsp includes
 
-The MIT License (MIT)
-Copyright (c) 2014 @rajiteh <rajiteh@gmail.com>
+### Front controller pattern
+- forward urls using patterns
+
+## Week 11
+
+### htaccess
+- Use PAM (pluggable authentication module)
+- Perform authentication by checking the response code.
+- SSL is important
+- POST request
+3
+
+
+Code appearing in this project is entirely written by <rajiteh@gmail.com> while following the class curriculum. The author makes no guarantee of the accuracy or the correctness of the code. 
+
+The MIT License (MIT)  
+Copyright (c) 2014 Raj Perera(@rajiteh)  
